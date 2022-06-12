@@ -6,7 +6,7 @@ import org.http4k.cloudnative.env.EnvironmentKey
 import org.http4k.core.Credentials
 import org.http4k.core.then
 import org.http4k.filter.ServerFilters.BasicAuth
-import org.http4k.server.ApacheServer
+import org.http4k.server.SunHttp
 import org.http4k.server.asServer
 
 // since we are running in a public environment, add credentials to the app
@@ -15,11 +15,11 @@ val BASIC_AUTH_CREDENTIALS = EnvironmentKey.map(String::toCredentials).required(
 fun main(args: Array<String>) {
     val env = Environment.ENV
 
-    val port = if (args.isNotEmpty()) args[0].toInt() else 5000
+    val port = (if (args.isNotEmpty()) args[0].toInt() else 5000).also { println("Port: $it") }
 
     BasicAuth("http4k", BASIC_AUTH_CREDENTIALS(env))
         .then(Http4kBox(env, JavaHttpClient()))
-        .asServer(ApacheServer(port)).start().block()
+        .asServer(SunHttp(port)).start().block()
 }
 
 private fun String.toCredentials() = split(":").run { Credentials(get(0), get(1)) }
