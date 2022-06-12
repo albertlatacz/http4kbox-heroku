@@ -17,4 +17,4 @@ The core app uses the following [**http4k**](https://http4k.org) modules and fea
 
 ## In action:
 
-<img src="https://github.com/daviddenton/http4k-demo-s3box/raw/master/screenshot.png"/>
+<img src="https://raw.githubusercontent.com/albertlatacz/http4kbox-heroku/main/screenshot.png"/>
