@@ -1,4 +1,4 @@
-# http4k-box-heroku - http4k app deployed to Heroku 
+# http4kbox-heroku - http4k app deployed to Heroku 
 
 ### Based on [more extensive example with multiple modes by David Denton](https://github.com/daviddenton/http4kbox)
 
