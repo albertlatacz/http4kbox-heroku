@@ -53,7 +53,7 @@ class S3(private val aws: HttpHandler) {
         }
 
         fun configured(env: Environment, http: HttpHandler) =
-            S3(SetBucketHost(Uri.of("https://${AWS_BUCKET(env)}.${S3_CREDENTIAL_SCOPE(env).service}.${S3_CREDENTIAL_SCOPE(env).region}.amazonaws.com"))
+            S3(SetBucketHost(Uri.of("https://${AWS_BUCKET(env)}.s3.amazonaws.com"))
                 .then(ClientFilters.AwsAuth(S3_CREDENTIAL_SCOPE(env), AWS_CREDENTIALS(env)))
                 .then(ensureSuccessful)
                 .then(http))
