@@ -6,7 +6,7 @@ import org.http4k.cloudnative.env.EnvironmentKey
 
 object Settings {
     val AWS_CREDENTIALS = EnvironmentKey.map(String::toAwsCredentials, AwsCredentials::fromCredentials).required("AWS_CREDENTIALS")
-    val AWS_BUCKET = EnvironmentKey.defaulted("AWS_BUCKET", "kotlin/http4kbox")
+    val AWS_BUCKET = EnvironmentKey.defaulted("AWS_BUCKET", "http4kbox-heroku")
     val S3_CREDENTIAL_SCOPE = EnvironmentKey.map({ AwsCredentialScope(it, "s3") }, AwsCredentialScope::region).required("S3_REGION")
 }
 
