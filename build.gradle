@@ -31,7 +31,7 @@ dependencies {
     api "org.http4k:http4k-core"
     api "org.http4k:http4k-cloudnative"
     api "org.http4k:http4k-multipart"
-    api "org.http4k:http4k-server-apache"
+    api "org.http4k:http4k-server-apache4"
     api "org.http4k:http4k-template-handlebars"
 
     testImplementation platform("org.junit:junit-bom:$junit_version")

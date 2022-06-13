@@ -6,7 +6,7 @@ import org.http4k.cloudnative.env.EnvironmentKey
 import org.http4k.core.Credentials
 import org.http4k.core.then
 import org.http4k.filter.ServerFilters.BasicAuth
-import org.http4k.server.ApacheServer
+import org.http4k.server.Apache4Server
 import org.http4k.server.asServer
 
 // since we are running in a public environment, add credentials to the app
@@ -19,7 +19,7 @@ fun main(args: Array<String>) {
 
     BasicAuth("http4k", BASIC_AUTH_CREDENTIALS(env))
         .then(Http4kBox(env, JavaHttpClient()))
-        .asServer(ApacheServer(port)).start().block()
+        .asServer(Apache4Server(port)).start().block()
 }
 
 private fun String.toCredentials() = split(":").run { Credentials(get(0), get(1)) }
